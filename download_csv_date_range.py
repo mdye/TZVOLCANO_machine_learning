@@ -8,7 +8,7 @@ from datetime import datetime
 INSTRUMENT_ID = '1'
 
 start_str = "2021-01-01"
-end_str = "2021-03-19"
+end_str = "2021-01-03"
 
 file_name = f'tzvolcano_data_instrument_id_{INSTRUMENT_ID}_{start_str}_to_{end_str}.csv'
 
