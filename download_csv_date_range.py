@@ -1,6 +1,10 @@
 from ChordsAPI import ChordsAPI
 
 domain = 'tzvolcano.chordsrt.com'
+
+
+
+
 chords_api =  ChordsAPI(domain)
 
 # Define parameters for data retrieval

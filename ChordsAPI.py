@@ -23,12 +23,18 @@ class ChordsAPI:
 
         return(data)
 
+    def get_file_name(self, instrument_id, start_str, end_str):
+        readable_domain = self.domain.replace(".", "_")
+
+        file_name = f'{self.local_data_dir}/{readable_domain}_instrument_id_{instrument_id}_{start_str}_to_{end_str}.csv'
+        return(file_name)
+
 
     def get_csv_data(self, instrument_id, start_str, end_str):
         start_dates = pd.date_range(start=start_str, end=end_str)
         end_dates = start_dates + pd.DateOffset(days=1)
 
-        file_name = f'{self.local_data_dir}/tzvolcano_data_instrument_id_{instrument_id}_{start_str}_to_{end_str}.csv'
+        file_name = self.get_file_name(instrument_id, start_str, end_str)
 
         f = open(file_name, 'w')
 
