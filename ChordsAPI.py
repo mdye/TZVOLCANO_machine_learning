@@ -1,11 +1,26 @@
 # Dependencies
 import urllib.request
 import pandas as pd
+import os
 
 class ChordsAPI:
     def __init__(self, domain):
         self.domain         = domain
         self.base_api_dir   = 'api/v1/data/'
+        self.local_data_dir = 'csv_files'
+
+        # while True:
+        #     mydir = self.local_data_dir
+        #     try:
+        #         os.makedirs(self.local_data_dir)
+        #         break
+        #     except OSError, e:
+        #         if e.errno != errno.EEXIST:
+        #             raise   
+        #         # time.sleep might help here
+        #         pass        
+        os.makedirs(self.local_data_dir, exist_ok=True)
+        
 
 
     def download_olo_csv_file(self, instrument_id, start, end):
@@ -23,7 +38,7 @@ class ChordsAPI:
         start_dates = pd.date_range(start=start_str, end=end_str)
         end_dates = start_dates + pd.DateOffset(days=1)
 
-        file_name = f'tzvolcano_data_instrument_id_{instrument_id}_{start_str}_to_{end_str}.csv'
+        file_name = f'{self.local_data_dir}/tzvolcano_data_instrument_id_{instrument_id}_{start_str}_to_{end_str}.csv'
 
         f = open(file_name, 'w')
 
