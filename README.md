@@ -6,6 +6,8 @@
 
 Runnable on [mybinder.org](https://mybinder.org/)
 
+[Full Binder configuration](https://mybinder.readthedocs.io/en/latest/using/config_files.html#environment-yml-install-a-conda-environment)
+
 ### Full Repo
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mdye/TZVOLCANO_machine_learning.git/HEAD)
 
