@@ -4,6 +4,12 @@ import urllib.request
 from datetime import datetime
 
 
+from ChordsAPI import ChordsAPI
+
+chords_api =  ChordsAPI()
+
+
+
 # Define parameters for data retrieval
 INSTRUMENT_ID = '1'
 
@@ -14,14 +20,15 @@ file_name = f'tzvolcano_data_instrument_id_{INSTRUMENT_ID}_{start_str}_to_{end_s
 
 
 
-def download_olo_csv_file(instrument_id, start, end):
-	url = f'http://tzvolcano.chordsrt.com/api/v1/data/{instrument_id}.csv?start={start}&end={end}'
-	print(url)
-	with urllib.request.urlopen(url) as f:
-		data = f.read().decode('utf-8')
 
-	# print(html)
-	return(data)
+# def download_olo_csv_file(instrument_id, start, end):
+# 	url = f'http://tzvolcano.chordsrt.com/api/v1/data/{instrument_id}.csv?start={start}&end={end}'
+# 	print(url)
+# 	with urllib.request.urlopen(url) as f:
+# 		data = f.read().decode('utf-8')
+
+# 	# print(html)
+# 	return(data)
 
 
 
@@ -42,7 +49,7 @@ for index, start_date in enumerate(start_dates):
 
 	print(index,start,end)
 
-	data_str = download_olo_csv_file(INSTRUMENT_ID, start, end)
+	data_str = chords_api.download_olo_csv_file(INSTRUMENT_ID, start, end)
 	lines = data_str.splitlines()
 
 	# Write the header if this is the first download
