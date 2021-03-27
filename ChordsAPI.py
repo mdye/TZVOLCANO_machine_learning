@@ -9,16 +9,6 @@ class ChordsAPI:
         self.base_api_dir   = 'api/v1/data/'
         self.local_data_dir = 'csv_files'
 
-        # while True:
-        #     mydir = self.local_data_dir
-        #     try:
-        #         os.makedirs(self.local_data_dir)
-        #         break
-        #     except OSError, e:
-        #         if e.errno != errno.EEXIST:
-        #             raise   
-        #         # time.sleep might help here
-        #         pass        
         os.makedirs(self.local_data_dir, exist_ok=True)
         
 
