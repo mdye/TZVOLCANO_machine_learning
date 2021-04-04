@@ -37,6 +37,8 @@ class ChordsAPI:
         file_name = self.get_file_name(instrument_id, start_str, end_str)
 
         f = open(file_name, 'w')
+        
+        print("Downloading data for instrument id ", instrument_id, " for dates from ", start_str, " to ", end_str)
 
 
         for index, start_date in enumerate(start_dates):
@@ -46,7 +48,7 @@ class ChordsAPI:
             start = start_date.strftime("%Y-%m-%dT00:00")
             end = end_date.strftime("%Y-%m-%dT00:00")
 
-            print(index,start,end)
+#             print(index,start,end)
 
             data_str = self.download_olo_csv_file(instrument_id, start, end)
             lines = data_str.splitlines()
@@ -60,4 +62,6 @@ class ChordsAPI:
             f.write("\n".join(lines[20:len(lines)]) + "\n")
 
             
-        f.close        
+        f.close
+        
+        print("Download complete, file created: ", file_name)
