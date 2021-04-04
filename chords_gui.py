@@ -55,6 +55,15 @@ class chords_gui:
         
         self.button.on_click(self.download_csv_file)
         
+        
+        self.file_download_outputs = widgets.Textarea(
+            value='',
+#             placeholder='Type something',
+            description='Output:',
+            layout={'width': '90%', 'height': '100px'},
+            disabled=False
+        )        
+        
         self.available_data_files = widgets.Select(
             options=self.get_availiable_files(),
             description='',
@@ -71,10 +80,13 @@ class chords_gui:
         row_1 = widgets.HBox([self.instrument_id])
         row_2 = widgets.HBox([self.start_date, self.end_date])
         row_3 = widgets.HBox([self.button])
+        row_4 = widgets.HBox([self.file_download_outputs])
+        
+        
         
 #         gui_output = widgets.Output()
 
-        display(row_1, row_2, row_3, self.out)
+        display(row_1, row_2, row_3, row_4, self.out)
 
 
     def download_csv_file(self, passed_var):
@@ -87,8 +99,17 @@ class chords_gui:
         
         domain = 'tzvolcano.chordsrt.com'
         chords_api =  ChordsAPI(domain)
+        
+        message = f'Downloading data for instrument id {instrument_id} for dates from {start_str} to {end_str}...'
+
+
+        self.file_download_outputs.value = self.file_download_outputs.value + message + "\n"
 
         chords_api.get_csv_data(instrument_id, start_str, end_str)
+
+        self.file_download_outputs.value = self.file_download_outputs.value + "Download complete\n"
+        
+
         
         
     def get_availiable_files(self):
@@ -102,6 +123,14 @@ class chords_gui:
 
     def select_data_file(self):        
         print("Available Data Files")
+        
+        self.available_data_files = widgets.Select(
+            options=self.get_availiable_files(),
+            description='',
+            disabled=False,
+            layout={'width': 'initial'}
+        )
+        
         data_files = widgets.HBox([self.available_data_files])
 
         display(data_files, self.out)
