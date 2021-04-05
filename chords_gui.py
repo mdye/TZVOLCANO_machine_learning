@@ -11,12 +11,18 @@ from datetime import datetime
 
 from ChordsAPI import ChordsAPI
 
+import pandas as pd
+
 
 
 class chords_gui:
     def __init__(self):
-        self.start_datetime_default = datetime.fromisoformat('2020-02-01')
-        self.end_datetime_default = datetime.fromisoformat('2020-02-01')
+        
+        self.domain = 'tzvolcano.chordsrt.com'
+        self.local_data_dir = 'csv_files'
+        
+        self.start_datetime_default = datetime.fromisoformat('2021-01-01')
+        self.end_datetime_default = datetime.fromisoformat('2021-01-05')
 
         self.instrument_id = widgets.Select(
             description='Instrument ID: ',
@@ -97,8 +103,8 @@ class chords_gui:
 #         print(start_str)
 #         print(end_str)
         
-        domain = 'tzvolcano.chordsrt.com'
-        chords_api =  ChordsAPI(domain)
+        
+        chords_api =  ChordsAPI(self.domain)
         
         message = f'Downloading data for instrument id {instrument_id} for dates from {start_str} to {end_str}...'
 
@@ -113,10 +119,9 @@ class chords_gui:
         
         
     def get_availiable_files(self):
-        local_data_dir = 'csv_files'
         from os import listdir
         from os.path import isfile, join
-        files = [f for f in listdir(local_data_dir) if isfile(join(local_data_dir, f))]
+        files = [f for f in listdir(self.local_data_dir) if isfile(join(self.local_data_dir, f))]
 
         return(files)
     
@@ -134,3 +139,15 @@ class chords_gui:
         data_files = widgets.HBox([self.available_data_files])
 
         display(data_files, self.out)
+        
+
+        
+    def load_data_from_file(self, file_name):
+        file_path = f'{self.local_data_dir}/{file_name}'
+        print(file_path)
+
+        return pd.read_csv(file_path,
+                        parse_dates=['Time'],
+                        header=18
+                        )        
+        
