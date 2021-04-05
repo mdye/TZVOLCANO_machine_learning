@@ -12,7 +12,7 @@ from datetime import datetime
 from ChordsAPI import ChordsAPI
 
 import pandas as pd
-
+import os
 
 
 class chords_gui:
