@@ -1,3 +1,10 @@
 *.csv
-__pycache__/ChordsAPI.cpython-39.pyc
+__pycache__/*
 *.pyc
+.ipynb_checkpoints/*
+.ipynb_checkpoints/TZVOLCANO Anomoly detection using K-Means-checkpoint.ipynb
+.ipynb_checkpoints/TZVOLCANO Anomoly detection using gaussian mixtures-checkpoint.ipynb
+__pycache__/ChordsAPI.cpython-39.pyc
+.ipynb_checkpoints/TZVOLCANO Anomoly detection using K-Means-checkpoint.ipynb
+.ipynb_checkpoints/TZVOLCANO Anomoly detection using gaussian mixtures-checkpoint.ipynb
+__pycache__/ChordsAPI.cpython-39.pyc
