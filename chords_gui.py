@@ -20,6 +20,7 @@ class chords_gui:
         
         self.domain = 'tzvolcano.chordsrt.com'
         self.local_data_dir = 'csv_files'
+        os.makedirs(self.local_data_dir, exist_ok=True)
         
         self.start_datetime_default = datetime.fromisoformat('2021-01-01')
         self.end_datetime_default = datetime.fromisoformat('2021-01-05')
