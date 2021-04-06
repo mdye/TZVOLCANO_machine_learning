@@ -29,7 +29,7 @@ class chords_gui:
 
         self.instrument_id = widgets.Select(
             description='Instrument ID: ',
-            options=['1', '2', '3'],
+            options=['1', '2', '4', '5', '6', '7', '8', '9'],
             value='1',
             disabled=False,
         )
