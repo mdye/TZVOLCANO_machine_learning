@@ -7,7 +7,9 @@
 from __future__ import print_function
 from ipywidgets import interact, interactive, fixed, interact_manual, Layout
 import ipywidgets as widgets
+
 from datetime import datetime
+from datetime import timedelta
 
 from ChordsAPI import ChordsAPI
 
@@ -22,8 +24,8 @@ class chords_gui:
         self.local_data_dir = 'csv_files'
         os.makedirs(self.local_data_dir, exist_ok=True)
         
-        self.start_datetime_default = datetime.fromisoformat('2021-01-01')
-        self.end_datetime_default = datetime.fromisoformat('2021-01-05')
+        self.start_datetime_default = datetime.now() - timedelta(days=1)
+        self.end_datetime_default = datetime.now() - timedelta(days=1)
 
         self.instrument_id = widgets.Select(
             description='Instrument ID: ',
