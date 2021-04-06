@@ -84,8 +84,15 @@ class chords_gui:
         self.out = widgets.Output()
 
         
-    def start_end_widgets(self):
+    def start_end_widgets(self, start_date_str = '', end_date_str = ''):
         
+        if not start_date_str == '':
+            self.start_date.value = datetime.fromisoformat(start_date_str)
+
+        if not end_date_str == '':
+            self.end_date.value = datetime.fromisoformat(end_date_str)
+
+
         row_1 = widgets.HBox([self.instrument_id])
         row_2 = widgets.HBox([self.start_date, self.end_date])
         row_3 = widgets.HBox([self.button])
