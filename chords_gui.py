@@ -16,9 +16,9 @@ import os
 
 
 class chords_gui:
-    def __init__(self):
+    def __init__(self, domain):
         
-        self.domain = 'tzvolcano.chordsrt.com'
+        self.domain = domain
         self.local_data_dir = 'csv_files'
         os.makedirs(self.local_data_dir, exist_ok=True)
         
