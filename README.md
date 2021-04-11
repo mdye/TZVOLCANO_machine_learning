@@ -17,3 +17,12 @@ Runnable on [mybinder.org](https://mybinder.org/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mdye/TZVOLCANO_machine_learning.git/HEAD?filepath=TZVOLCANO%20Data%20retrieval%20test.ipynb)
 
 
+
+
+### Isolation Forest
+https://www.bmc.com/blogs/outlier-and-anomaly-detection/
+
+
+https://paperswithcode.com/task/unsupervised-anomaly-detection
+
+https://github.com/signals-dev/Orion
