@@ -19,6 +19,23 @@ assert tf.__version__ >= "2.0"
 
 
 
+def calculate_scalar(pandas_object, vector_fields_list):
+    # create the string to evaluate
+    strings =[]
+    for vector_field in vector_fields_list:
+        string_partial = "pandas_object['" + vector_field + "']**2"
+        strings.append(string_partial)
+    
+    s = " + "
+    string = s.join(strings)
+    
+    scalar_value = np.sqrt(eval(string))
+    
+    normalized_scalar_value = scale_np_data(scalar_value.to_numpy(), scale_minimum, scale_maximum)
+
+    return normalized_scalar_value
+
+
 
 def plot_series(series, n_steps, y=None, y_pred=None, x_label="$t$", y_label="$x(t)$"):
     plt.plot(series, ".-")
