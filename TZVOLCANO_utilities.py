@@ -19,7 +19,7 @@ assert tf.__version__ >= "2.0"
 
 
 
-def calculate_scalar(pandas_object, vector_fields_list):
+def calculate_scalar(pandas_object, vector_fields_list, scale_minimum, scale_maximum):
     # create the string to evaluate
     strings =[]
     for vector_field in vector_fields_list:
