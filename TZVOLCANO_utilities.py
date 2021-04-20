@@ -6,9 +6,11 @@
 
 import os
 
+import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
+# Plotting
+import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 
 
@@ -220,6 +222,15 @@ def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
         
         
 def transform_data_for_kmeans(pandas_object, field_name):
+    
+    # Create a new pandas object to temporarily store the data before imputing
+    data = pd.DataFrame()
+
+    # Convert the Time variable to Seconds Since Epoch
+    data["Seconds Since Epoch"] = pandas_object['Seconds Since Epoch']
+    data[field_name] = pandas_object[field_name]
+    
+    
     # Define a pipline to clean numerical data
     num_pipeline = Pipeline([
         ('imputer', SimpleImputer(strategy="most_frequent")),
@@ -227,6 +238,6 @@ def transform_data_for_kmeans(pandas_object, field_name):
     ])
 
     # Run the pipeline
-    data_imputed = num_pipeline.fit_transform(pandas_object)    
+    data_imputed = num_pipeline.fit_transform(data)    
     
     return data_imputed        
