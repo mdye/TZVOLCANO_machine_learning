@@ -18,6 +18,12 @@ from tensorflow import keras
 assert tf.__version__ >= "2.0"
 
 
+# Data pipeline, scaling, normalizing, etc
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
+
+
 
 def calculate_scalar(pandas_object, vector_fields_list, scale_minimum, scale_maximum):
     # create the string to evaluate
@@ -211,3 +217,16 @@ def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
         plt.ylabel("$x_2$", fontsize=14, rotation=0)
     else:
         plt.tick_params(labelleft=False)        
+        
+        
+def transform_data_for_kmeans(pandas_object, field_name):
+    # Define a pipline to clean numerical data
+    num_pipeline = Pipeline([
+        ('imputer', SimpleImputer(strategy="most_frequent")),
+        ('std_scaler', StandardScaler()),
+    ])
+
+    # Run the pipeline
+    data_imputed = num_pipeline.fit_transform(pandas_object)    
+    
+    return data_imputed        
