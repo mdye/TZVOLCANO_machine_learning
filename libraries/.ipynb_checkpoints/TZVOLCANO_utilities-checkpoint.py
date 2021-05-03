@@ -90,7 +90,6 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
         plt.tight_layout()
     plt.savefig(path, format=fig_extension, dpi=resolution)    
     
-    
 
     
 def last_time_step_mse(Y_true, Y_pred):
@@ -336,3 +335,5 @@ def get_rnn_model(n_steps_ahead):
     model.compile(loss="mse", optimizer=keras.optimizers.Adam(learning_rate=0.01), metrics=[last_time_step_mse])
     
     return model
+
+
