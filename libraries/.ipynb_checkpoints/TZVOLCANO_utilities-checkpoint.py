@@ -142,6 +142,7 @@ def get_RNN_forecast_sets(pandas_object, key, n_steps_training, n_steps_forecast
 
 
 def plot_centroids(centroids, weights=None, circle_color='w', cross_color='k'):
+    print(centroids.size)
     if weights is not None:
         centroids = centroids[weights > weights.max() / 10]
     plt.scatter(centroids[:, 0], centroids[:, 1],
