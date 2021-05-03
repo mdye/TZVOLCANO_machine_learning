@@ -1,5 +1,9 @@
 ## Toward autonomous detection of anomalous GNSS data via applied unsupervised artificial intelligence 
 
+## EarthCube template
+
+[Notebook template](https://github.com/earthcube/NotebookTemplates)
+
 ## Binder
 
 

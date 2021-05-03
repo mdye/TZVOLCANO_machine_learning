@@ -241,3 +241,96 @@ def transform_data_for_kmeans(pandas_object, field_name):
     data_imputed = num_pipeline.fit_transform(data)    
     
     return data_imputed        
+
+
+def get_rnn_model(n_steps_ahead):
+    np.random.seed(42)
+    tf.random.set_seed(42)
+
+#     model = keras.models.Sequential([
+#         keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.BatchNormalization(),
+#         keras.layers.SimpleRNN(20, return_sequences=True),
+#         keras.layers.BatchNormalization(),
+#         keras.layers.TimeDistributed(keras.layers.Dense(n_steps_ahead))
+#     ])    
+    
+#     model.compile(loss="mse", optimizer="adam", metrics=[last_time_step_mse])
+
+
+
+
+
+# This is the model that produces decent results
+#     model = keras.models.Sequential([
+#         keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.SimpleRNN(20, return_sequences=True),
+#         keras.layers.TimeDistributed(keras.layers.Dense(n_steps_ahead))
+#     ])
+
+#     model.compile(loss="mse", optimizer=keras.optimizers.Adam(learning_rate=0.01), metrics=[last_time_step_mse])
+    
+
+    
+
+#     model = keras.models.Sequential([
+#         keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.SimpleRNN(20),
+#         keras.layers.Dense(n_steps_ahead)
+#     ])
+    
+#     model.compile(loss="mse", optimizer="adam")
+
+
+#     model = keras.models.Sequential([
+#         keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.SimpleRNN(20),
+#         keras.layers.Dense(n_steps_ahead)
+#     ])
+    
+#     model.compile(loss="mse", optimizer=keras.optimizers.Adam(learning_rate=0.01), metrics=[last_time_step_mse])
+
+
+
+    
+#     model = keras.models.Sequential([
+#         keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.Dropout(rate=0.2),
+#         keras.layers.SimpleRNN(20, return_sequences=True),
+#         keras.layers.TimeDistributed(keras.layers.Dense(n_steps_ahead))
+#     ])
+
+#     model.compile(loss="mse", optimizer=keras.optimizers.Adam(learning_rate=0.01), metrics=[last_time_step_mse])
+    
+    
+#     model = keras.models.Sequential([
+#         keras.layers.LSTM(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.LSTM(20, return_sequences=True),
+#         keras.layers.TimeDistributed(keras.layers.Dense(n_steps_ahead))
+#     ])
+
+#     model.compile(loss="mse", optimizer=keras.optimizers.Adam(learning_rate=0.01), metrics=[last_time_step_mse])
+
+    
+#     model = keras.models.Sequential([
+#         keras.layers.LSTM(20, return_sequences=True, input_shape=[None, 1]),
+#         keras.layers.LSTM(20, return_sequences=True),
+#         keras.layers.TimeDistributed(keras.layers.Dense(n_steps_ahead))
+#     ])
+
+#     model.compile(loss="mse", optimizer="adam", metrics=[last_time_step_mse])
+
+    
+    model = keras.models.Sequential([
+        keras.layers.Conv1D(filters=20, kernel_size=4, strides=2, padding="valid",
+                            input_shape=[None, 1]),
+        keras.layers.GRU(20, return_sequences=True),
+        keras.layers.Dropout(rate=0.2),
+        keras.layers.GRU(20, return_sequences=True),
+        keras.layers.TimeDistributed(keras.layers.Dense(n_steps_ahead))
+    ])
+
+#     model.compile(loss="mse", optimizer="adam", metrics=[last_time_step_mse])    
+    model.compile(loss="mse", optimizer=keras.optimizers.Adam(learning_rate=0.01), metrics=[last_time_step_mse])
+    
+    return model
