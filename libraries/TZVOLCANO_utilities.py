@@ -27,7 +27,7 @@ from sklearn.impute import SimpleImputer
 
 
 
-def calculate_scalar(pandas_object, vector_fields_list, scale_minimum, scale_maximum):
+def calculate_vector_magnitude(pandas_object, vector_fields_list, scale_minimum, scale_maximum):
     # create the string to evaluate
     strings =[]
     for vector_field in vector_fields_list:
@@ -37,11 +37,11 @@ def calculate_scalar(pandas_object, vector_fields_list, scale_minimum, scale_max
     s = " + "
     string = s.join(strings)
     
-    scalar_value = np.sqrt(eval(string))
+    vector_magnitude = np.sqrt(eval(string))
     
-    normalized_scalar_value = scale_np_data(scalar_value.to_numpy(), scale_minimum, scale_maximum)
+    normalized_vector_magnitude = scale_np_data(vector_magnitude.to_numpy(), scale_minimum, scale_maximum)
 
-    return normalized_scalar_value
+    return normalized_vector_magnitude
 
 
 
