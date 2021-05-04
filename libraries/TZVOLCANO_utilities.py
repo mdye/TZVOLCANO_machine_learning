@@ -150,7 +150,6 @@ def plot_centroids(centroids, weights=None, circle_color='w', cross_color='k'):
     plt.scatter(centroids[:, 0], centroids[:, 1],
                 marker='x', s=2, linewidths=12,
                 color=cross_color, zorder=11, alpha=1)
-    
 
 
     
@@ -193,6 +192,25 @@ def plot_data(X):
     plt.plot(X[:, 0], X[:, 1], 'k.', markersize=2)
 
 
+def plot_decision_boundaries_centroids(centroids, weights=None, circle_color='w', cross_color='k'):
+    
+    if weights is not None:
+        centroids = centroids[weights > weights.max() / 10]
+
+    
+    #     Annotation article:
+    #     https://nikkimarinsek.com/blog/7-ways-to-label-a-cluster-plot-python
+
+    #     Print the index of the region at the middle of the decision boundary
+    for i, centroid in enumerate(centroids):
+        plt.annotate(i, 
+                     centroid,
+                     horizontalalignment='center',
+                     verticalalignment='center',
+                     size=14, 
+                     color=cross_color,
+                     backgroundcolor=circle_color)     
+    
 def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
                              show_xlabels=True, show_ylabels=True):
     mins = X.min(axis=0) - 0.1
@@ -208,7 +226,7 @@ def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
                 linewidths=1, colors='k')
     plot_data(X)
     if show_centroids:
-        plot_centroids(clusterer.cluster_centers_)
+        plot_decision_boundaries_centroids(clusterer.cluster_centers_)
 
     if show_xlabels:
         plt.xlabel("$x_1$", fontsize=14)
