@@ -260,6 +260,26 @@ def transform_data_for_kmeans(pandas_object, field_name):
     return data_imputed        
 
 
+def transform_data_for_gaussian_mixtures(pandas_object, field_name):
+    
+    # Create a new pandas object to temporarily store the data before imputing
+    data = pd.DataFrame()
+
+    # Convert the Time variable to Seconds Since Epoch
+    data["Seconds Since Epoch"] = pandas_object['Seconds Since Epoch']
+    data[field_name] = pandas_object[field_name]    
+    
+    # Define a pipline to clean numerical data
+    # Note that this does NOT rescale values - this function expects it to already be scaled!
+    num_pipeline = Pipeline([
+        ('imputer', SimpleImputer(strategy="most_frequent")),
+    ])
+
+    # Run the pipeline
+    data_imputed = num_pipeline.fit_transform(data)    
+    
+    return data_imputed
+
 
 
 def get_rnn_model(n_steps_ahead):
