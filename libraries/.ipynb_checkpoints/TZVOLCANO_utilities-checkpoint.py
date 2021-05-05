@@ -307,6 +307,15 @@ def get_anomalies_using_gaussian_mixtures(data_imputed, density_threshold_percen
     
     return gm, anomalies
 
+
+def plot_gaussian_mixture_anomalies(gm, data_imputed, anomalies):
+    plt.figure(figsize=(16, 10))
+
+    plot_gaussian_mixture(gm, data_imputed)
+    plt.scatter(anomalies[:, 0], anomalies[:, 1], color='r', marker='*')
+    # plt.ylim(top=1.5, bottom= -0.5)
+    
+
 def get_rnn_model(n_steps_ahead):
     np.random.seed(42)
     tf.random.set_seed(42)
