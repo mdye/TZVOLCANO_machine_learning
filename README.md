@@ -13,7 +13,7 @@ TZVOLCANO, CHORDS, UNAVCO, EarthCube, Artificial Intelligence, Machine Learning,
 ## Binder
 These notebooks are Binder enabled and can be run on [mybinder.org](https://mybinder.org/) for free using the links below
 
-### EarthCube Notebook
+### MD_01_TZVOLCANO_Gaussian_Mixtures_Anomaly_Detection (Notebook for EarthCube) 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mdye/TZVOLCANO_machine_learning.git/HEAD?filepath=MD_01_TZVOLCANO_Gaussian_Mixtures_Anomaly_Detection.ipynb)
 
 
