@@ -79,7 +79,7 @@ def get_neural_net_model(n_steps_ahead):
     np.random.seed(42)
     tf.random.set_seed(42)
         
-    model = get_1D_convolutional_and_gru_with_dropout_model(n_steps_ahead)
+    model = get_time_distributed_1D_convolutional_and_gru_with_dropout_model(n_steps_ahead)
     
     return model
 
