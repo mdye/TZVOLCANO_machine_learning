@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 
 # Data pipeline, scaling, normalizing, etc
@@ -8,7 +6,15 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
 
         
-        
+#####        
+# Given a pandas object an the name of one of its elements,
+# return a scaled and imputed numpy array
+#
+# Scaling is performed ising the defauls values in the sklearn StandardScalar function
+# Imputing replaces any null or missing vaules with an actual numerical value. In this case,
+# the most_frequent strategy is used, which located the most frequently occurring value in the array and replaces 
+# the missing value with that number
+#####        
 def transform_data_for_kmeans(pandas_object, field_name):
     
     # Create a new pandas object to temporarily store the data before imputing
