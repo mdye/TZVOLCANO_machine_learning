@@ -1,6 +1,7 @@
 *.csv
 __pycache__/*
 .ipynb_checkpoints/*
+libraries/.ipynb_checkpoints/*
 *.pyc
 .DS_Store
 images/*
