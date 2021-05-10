@@ -9,6 +9,14 @@ Artificial intelligence applications within the geosciences are becoming increas
 ## Keywords
 TZVOLCANO, CHORDS, UNAVCO, EarthCube, Artificial Intelligence, Machine Learning, unsupervised learning, automated QA/QC, GNSS
 
+## To run this Notebook on your local machine, you will need the following Python3 libraries: 
+- numpy
+- pandas
+- scikitlearn
+- keras 
+- tensorflow
+- matplotlib
+- ipywidgits
 
 ## Binder
 These notebooks are Binder enabled and can be run on [mybinder.org](https://mybinder.org/) for free using the links below
