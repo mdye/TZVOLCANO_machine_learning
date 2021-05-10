@@ -12,7 +12,6 @@ def scale_np_data(np_array, scale_minimum, scale_maximum):
 # Given an pandas object and a list of elements in that object, 
 # return a scaled numpy array of the vector magnitude for those elements
 #####
-Define a function to calculate the scaled vector magnitude 
 def calculate_vector_magnitude(pandas_object, vector_fields_list, scale_minimum, scale_maximum):
     # create the string to evaluate
     strings =[]
