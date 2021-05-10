@@ -10,6 +10,9 @@ from sklearn.preprocessing import StandardScaler
 # Given a pandas object an the name of one of its elements,
 # return a scaled and imputed numpy array
 #
+# The purpose of this transformation is to make sure that the data are in a suitable format 
+# to train a k-means algoritm
+#
 # Scaling is performed ising the defauls values in the sklearn StandardScalar function
 # Imputing replaces any null or missing vaules with an actual numerical value. In this case,
 # the most_frequent strategy is used, which located the most frequently occurring value in the array and replaces 
