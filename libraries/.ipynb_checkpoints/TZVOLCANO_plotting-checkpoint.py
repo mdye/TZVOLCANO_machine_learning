@@ -6,6 +6,10 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 
 
+
+#####        
+# Plot a time series data set
+#####
 def plot_series(series, n_steps, y=None, y_pred=None, x_label="$t$", y_label="$x(t)$"):
     plt.plot(series, ".-")
     if y is not None:
@@ -21,7 +25,10 @@ def plot_series(series, n_steps, y=None, y_pred=None, x_label="$t$", y_label="$x
     plt.axis([0, n_steps + 1, -1, 1])
     
     
-    
+
+#####        
+# Plot both actual data, with an overlay of predictions made by a model
+#####  
 def plot_multiple_forecasts(X, Y, Y_pred, n_steps):
     n_steps = X.shape[1]
     ahead = Y.shape[1]
@@ -32,13 +39,15 @@ def plot_multiple_forecasts(X, Y, Y_pred, n_steps):
     plt.legend(fontsize=14)    
     
     
-def plot_clusters(X, y=None):
-    plt.scatter(X[:, 0], X[:, 1], c=y, s=1)
-    plt.xlabel("$x_1$", fontsize=14)
-    plt.ylabel("$x_2$", fontsize=14, rotation=0)    
+# def plot_clusters(X, y=None):
+#     plt.scatter(X[:, 0], X[:, 1], c=y, s=1)
+#     plt.xlabel("$x_1$", fontsize=14)
+#     plt.ylabel("$x_2$", fontsize=14, rotation=0)    
 
     
-    
+#####        
+# Utility function for saving an image as a file external to a notebook
+#####
 def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     # Where to save the figures
     PROJECT_ROOT_DIR = "."
@@ -52,7 +61,10 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     plt.savefig(path, format=fig_extension, dpi=resolution)    
     
 
-    
+#####        
+# Plot the centroids of a trained gaussian mixtures model
+# Note that in this use case, there will only be once centroid - it's thr gradients we care about
+#####    
 def plot_centroids(centroids, weights=None, circle_color='w', cross_color='k'):
     if weights is not None:
         centroids = centroids[weights > weights.max() / 10]
@@ -65,7 +77,10 @@ def plot_centroids(centroids, weights=None, circle_color='w', cross_color='k'):
 
 
     
-    
+#####        
+# Plot the output of the gaussian mixtures processing
+#####
+
 def plot_gaussian_mixture(clusterer, X, resolution=1000, show_ylabels=True):
     mins = X.min(axis=0) - 0.1
     maxs = X.max(axis=0) + 0.1
@@ -97,6 +112,9 @@ def plot_gaussian_mixture(clusterer, X, resolution=1000, show_ylabels=True):
         plt.tick_params(labelleft=False)    
         
 
+#####        
+# Plot the overlay of the points flagged as outliers by the gaussian mixtures algortihm
+#####    
 def plot_gaussian_mixture_anomalies(gm, data_imputed, anomalies):
     plt.figure(figsize=(16, 10))
 
@@ -106,12 +124,18 @@ def plot_gaussian_mixture_anomalies(gm, data_imputed, anomalies):
     
     
 
-        
-# For K-means plotting
+#####        
+# For plotting of K-means graphs
+#####
 def plot_data(X):
     plt.plot(X[:, 0], X[:, 1], 'k.', markersize=2)
 
 
+#####        
+# Plot the centroids of the k-means regiois, laelling them with their numerical index
+# this is important so a user can identify which regions should be retained as "clean" data, 
+# and which regions should be removed 
+#####    
 def plot_decision_boundaries_centroids(centroids, weights=None, circle_color='w', cross_color='k'):
     
     if weights is not None:
@@ -131,7 +155,9 @@ def plot_decision_boundaries_centroids(centroids, weights=None, circle_color='w'
                      color=cross_color,
                      backgroundcolor=circle_color)     
     
-    
+#####        
+# Plot the decision bountaries of the trained k-means algorithm
+#####
 def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
                              show_xlabels=True, show_ylabels=True):
     mins = X.min(axis=0) - 0.1
