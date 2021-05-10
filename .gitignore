@@ -5,3 +5,4 @@ libraries/.ipynb_checkpoints/*
 *.pyc
 .DS_Store
 images/*
+libraries/.ipynb_checkpoints/TZVOLCANO_neural_net-checkpoint.py
