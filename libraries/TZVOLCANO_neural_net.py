@@ -85,7 +85,7 @@ def get_neural_net_model(n_steps_ahead):
 
 
 
-#####
+##### Main one employed in the Notebook
 # This keras model defines a neural net with several layers:
 # Top     : A 1D convolutional to assist in dimensionality reduction of the data
 # Top - 1 : A GRU layer (Gated Recurrent Unit) which acts similar to a recurrent neural net but is not as susecptible to 
