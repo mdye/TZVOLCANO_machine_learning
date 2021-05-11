@@ -10,15 +10,16 @@ Artificial intelligence applications within the geosciences are becoming increas
 TZVOLCANO, CHORDS, UNAVCO, EarthCube, Artificial Intelligence, Machine Learning, unsupervised learning, automated QA/QC, GNSS
 
 ## To run this Notebook on your local machine, you will need the following Python3 libraries:
+| Library  | Version | |
+| ------------- | ------------- | ------------- |
+| pandas | 1.2.* | Data analysis and manipulation |
+| matplotlib | 3.3.* | Plotting |
+| numpy | 1.19.* | Linear algerbra and array manipulation |
+| scikit-learn | 0.24.* | Machine learning  |
+| scipy | 1.6.* | Science and math utilities |
+| ipywidgets | 7.6.3 | GUI widgets |
+| tensorflow | 2.5.0rc0 | Neural network libraries |
 
-| Library | Version | 
-|pandas | 1.2.*
-| matplotlib | 3.3.* |
-numpy==1.19.*
-scikit-learn==0.24.*
-scipy==1.6.*
-ipywidgets==7.6.3
-tensorflow==2.5.0rc0
 - numpy
 - pandas
 - scikitlearn
