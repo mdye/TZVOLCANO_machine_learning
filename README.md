@@ -20,13 +20,6 @@ TZVOLCANO, CHORDS, UNAVCO, EarthCube, Artificial Intelligence, Machine Learning,
 | ipywidgets | 7.6.3 | GUI widgets |
 | tensorflow | 2.5.0rc0 | Neural network libraries |
 
-- numpy
-- pandas
-- scikitlearn
-- keras 
-- tensorflow
-- matplotlib
-- ipywidgits
 
 
 ## Installation on local machine
