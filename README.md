@@ -83,10 +83,11 @@ when done with the notebook, you can deactivate the environment:
 
 
 ### Enable the table of contents extension
+```
 pip install jupyter_contrib_nbextensions
 jupyter contrib nbextension install 
 jupyter nbextension enable toc2/main
-
+```
 
 
 
