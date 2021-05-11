@@ -9,7 +9,16 @@ Artificial intelligence applications within the geosciences are becoming increas
 ## Keywords
 TZVOLCANO, CHORDS, UNAVCO, EarthCube, Artificial Intelligence, Machine Learning, unsupervised learning, automated QA/QC, GNSS
 
-## To run this Notebook on your local machine, you will need the following Python3 libraries: 
+## To run this Notebook on your local machine, you will need the following Python3 libraries:
+
+| Library | Version | 
+|pandas | 1.2.*
+| matplotlib | 3.3.* |
+numpy==1.19.*
+scikit-learn==0.24.*
+scipy==1.6.*
+ipywidgets==7.6.3
+tensorflow==2.5.0rc0
 - numpy
 - pandas
 - scikitlearn
@@ -17,6 +26,31 @@ TZVOLCANO, CHORDS, UNAVCO, EarthCube, Artificial Intelligence, Machine Learning,
 - tensorflow
 - matplotlib
 - ipywidgits
+
+
+## Installation on local machine
+
+It is a best practice to use a virutal python environment so the differing dependencies between projects do not conflict
+
+### create the new environment
+`python3 -m venv tzvolcano_ml_env`
+
+### activate the environment
+`source env/bin/activate`
+
+when done with the notebook, you can deactivate the environment:
+`deactivate`
+
+More information on virtual envirnments can be found [here](https://realpython.com/python-virtual-environments-a-primer/)
+
+
+### Installing dependencies with pip3
+If you are not using conda, you can install the depenencies with pip3
+
+All the required dependencies can be installed from the requirements.txt file:
+`pip3 install -r /path/to/requirements.txt`
+
+
 
 ## Binder
 These notebooks are Binder enabled and can be run on [mybinder.org](https://mybinder.org/) for free using the links below
