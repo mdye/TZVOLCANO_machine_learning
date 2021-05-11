@@ -38,9 +38,6 @@ To run this Notebook on your local machine, you will need the following Python3 
 
 
 
-
-More information on virtual envirnments can be found [here](https://realpython.com/python-virtual-environments-a-primer/)
-
 ### Installing on a local environment using conda
 If you are using conda the collowing code will create the required environment for this notebook
 ```
@@ -63,6 +60,8 @@ pip install tensorflow==2.5.0.rc3
 Note that the installation of tensorflow if done with pip, which may cause problems when used in conjustion with conda.
 Unfortunately, the version of tensorflow required has not been released as a conda package as of this writing.
 
+
+
 ### Installing dependencies with pip3
 If you are not using conda, you can install the depenencies with pip3
 
@@ -79,6 +78,8 @@ All the required dependencies can be installed from the requirements.txt file:
 when done with the notebook, you can deactivate the environment:
 
 `deactivate`
+
+More information on virtual envirnments can be found [here](https://realpython.com/python-virtual-environments-a-primer/)
 
 
 
