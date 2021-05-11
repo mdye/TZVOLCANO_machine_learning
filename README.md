@@ -67,6 +67,7 @@ Unfortunately, the version of tensorflow required has not been released as a con
 If you are not using conda, you can install the depenencies with pip3
 
 All the required dependencies can be installed from the requirements.txt file:
+
 `pip3 install -r requirements.txt`
 
 #### Create a new environment
@@ -76,6 +77,7 @@ All the required dependencies can be installed from the requirements.txt file:
 `source env/bin/activate`
 
 when done with the notebook, you can deactivate the environment:
+
 `deactivate`
 
 
