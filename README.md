@@ -16,10 +16,6 @@ These notebooks are Binder enabled and can be run on [mybinder.org](https://mybi
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mdye/TZVOLCANO_machine_learning.git/HEAD?filepath=MD_01_TZVOLCANO_Gaussian_Mixtures_Anomaly_Detection.ipynb)
 
 
-### Full Repo
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mdye/TZVOLCANO_machine_learning.git/HEAD)
-
-
 ## Installation on local machine
 
 It is a best practice to use a virutal python environment so the differing dependencies between projects do not conflict
