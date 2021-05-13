@@ -30,7 +30,7 @@ To run this Notebook on your local machine, you will need the following Python3 
 | matplotlib | 3.3.* | Plotting |
 | ipywidgets | 7.6.0 | GUI widgets |
 | scikit-learn | 0.24.* | Machine learning  |
-| tensorflow | 2.5.0rc0 | Neural network libraries |
+| tensorflow | 2.5.0rc3 | Neural network libraries |
 
 
 
