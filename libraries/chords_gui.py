@@ -105,7 +105,7 @@ class chords_gui:
         display(row_1, row_2, row_3, row_4, self.out)
 
 
-    def download_csv_file(self, passed_var):
+    def download_csv_file(self, passed_var = ''):
         instrument_id = self.instrument_id.value
         start_str = self.start_date.value.strftime('%Y-%m-%d')
         end_str = self.end_date.value.strftime('%Y-%m-%d')
@@ -131,7 +131,12 @@ class chords_gui:
     def get_availiable_files(self):
         from os import listdir
         from os.path import isfile, join
-        files = [f for f in listdir(self.local_data_dir) if isfile(join(self.local_data_dir, f))]
+#         files = [f for f in listdir(self.local_data_dir) if isfile(join(self.local_data_dir, f))]
+        files = []
+        for file in os.listdir(self.local_data_dir):
+            if isfile(join(self.local_data_dir, file)):
+                if file.endswith(".csv"):
+                    files.append(file)
 
         return(files)
     
