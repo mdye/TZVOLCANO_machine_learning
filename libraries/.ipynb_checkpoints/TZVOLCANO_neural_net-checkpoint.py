@@ -19,7 +19,7 @@ def last_time_step_mse(Y_true, Y_pred):
 # Given a pandas object and the key name of one of its elements
 # return numpy arrays of n_steps elements to suitable for training of a neural net
 #####
-def get_RNN_training_sets(pandas_object, key, n_steps):
+def get_neural_net_training_sets(pandas_object, key, n_steps):
     # extract the desired values and covert them to a numpy array
     np_data = pandas_object[key].to_numpy()
     
@@ -44,7 +44,7 @@ def get_RNN_training_sets(pandas_object, key, n_steps):
 # Given a pandas object and the key name of one of its elements
 # return two numpy arrays for making forcasts (predictions) in a trained neural network
 #####
-def get_RNN_forecast_sets(pandas_object, key, n_steps_training, n_steps_forecast, n_steps_ahead):
+def get_neural_net_forecast_sets(pandas_object, key, n_steps_training, n_steps_forecast, n_steps_ahead):
     # extract the desired values and covert them to a numpy array
     np_data = pandas_object[key].to_numpy()
 
