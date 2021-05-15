@@ -1,4 +1,4 @@
-# Dependencies
+# import dependencies
 import urllib.request
 import pandas as pd
 import os

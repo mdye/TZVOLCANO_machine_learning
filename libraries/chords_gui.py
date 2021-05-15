@@ -1,9 +1,4 @@
-# Jupyter widgets
-# https://dataviz.shef.ac.uk/blog/16/06/2020/Jupyter-Widgets
-
-# Good tutorial
-# https://towardsdatascience.com/bring-your-jupyter-notebook-to-life-with-interactive-widgets-bc12e03f0916
-
+# import dependencies
 from __future__ import print_function
 from ipywidgets import interact, interactive, fixed, interact_manual, Layout
 import ipywidgets as widgets
