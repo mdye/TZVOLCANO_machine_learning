@@ -57,9 +57,6 @@ class chords_gui:
         self.button = widgets.Button(
             description='Download File',
             disabled=False,
-#             button_style='', # 'success', 'info', 'warning', 'danger' or ''
-#             tooltip='Click me',
-#             icon='check' # (FontAwesome names without the `fa-` prefix)
         )
         
         self.button.on_click(self.download_csv_file)
@@ -67,7 +64,6 @@ class chords_gui:
         
         self.file_download_outputs = widgets.Textarea(
             value='',
-#             placeholder='Type something',
             description='Output:',
             layout={'width': '90%', 'height': '100px'},
             disabled=False
@@ -99,25 +95,17 @@ class chords_gui:
         row_4 = widgets.HBox([self.file_download_outputs])
         
         
-        
-#         gui_output = widgets.Output()
-
         display(row_1, row_2, row_3, row_4, self.out)
 
 
     def download_csv_file(self, passed_var = ''):
         instrument_id = self.instrument_id.value
         start_str = self.start_date.value.strftime('%Y-%m-%d')
-        end_str = self.end_date.value.strftime('%Y-%m-%d')
-
-#         print(start_str)
-#         print(end_str)
-        
+        end_str = self.end_date.value.strftime('%Y-%m-%d')        
         
         chords_api =  ChordsAPI(self.domain)
         
         message = f'Downloading data for instrument id {instrument_id} for dates from {start_str} to {end_str}...'
-
 
         self.file_download_outputs.value = self.file_download_outputs.value + message + "\n"
 
@@ -131,7 +119,7 @@ class chords_gui:
     def get_availiable_files(self):
         from os import listdir
         from os.path import isfile, join
-#         files = [f for f in listdir(self.local_data_dir) if isfile(join(self.local_data_dir, f))]
+
         files = []
         for file in os.listdir(self.local_data_dir):
             if isfile(join(self.local_data_dir, file)):

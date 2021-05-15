@@ -48,8 +48,6 @@ class ChordsAPI:
             start = start_date.strftime("%Y-%m-%dT00:00")
             end = end_date.strftime("%Y-%m-%dT00:00")
 
-#             print(index,start,end)
-
             data_str = self.download_olo_csv_file(instrument_id, start, end)
             lines = data_str.splitlines()
 
