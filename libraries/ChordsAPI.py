@@ -13,7 +13,7 @@ class ChordsAPI:
         
 
 
-    def download_olo_csv_file(self, instrument_id, start, end):
+    def download_csv_file(self, instrument_id, start, end):
         url = f'http://{self.domain}/{self.base_api_dir}/{instrument_id}.csv?start={start}&end={end}'
         
         print(url)
@@ -22,6 +22,7 @@ class ChordsAPI:
             data = f.read().decode('utf-8')
 
         return(data)
+
 
     def get_file_name(self, instrument_id, start_str, end_str):
         readable_domain = self.domain.replace(".", "_")
@@ -48,7 +49,7 @@ class ChordsAPI:
             start = start_date.strftime("%Y-%m-%dT00:00")
             end = end_date.strftime("%Y-%m-%dT00:00")
 
-            data_str = self.download_olo_csv_file(instrument_id, start, end)
+            data_str = self.download_csv_file(instrument_id, start, end)
             lines = data_str.splitlines()
 
             # Write the header if this is the first download
