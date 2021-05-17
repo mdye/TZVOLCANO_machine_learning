@@ -1,0 +1,1 @@
+This directory contains data fom the volcanic event from January 17th and 18th, 2017
