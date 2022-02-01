@@ -21,11 +21,13 @@ class chords_gui:
         
         self.start_datetime_default = datetime.now() - timedelta(days=1)
         self.end_datetime_default = datetime.now() - timedelta(days=1)
+        
+        self.instrument_id_default = '1'
 
         self.instrument_id = widgets.Select(
             description='Instrument ID: ',
             options=['1', '2', '4', '5', '6', '7', '8', '9'],
-            value='1',
+            value=self.instrument_id_default,
             disabled=False,
         )
         
@@ -77,7 +79,7 @@ class chords_gui:
         
 
     # public function to display the CHORDS GUI widgets
-    def start_end_widgets(self, start_date_str = '', end_date_str = ''):
+    def start_end_widgets(self, start_date_str = '', end_date_str = '', instrument_id = ''):
         
         # initialize the start and end date fields
         if not start_date_str == '':
@@ -86,6 +88,9 @@ class chords_gui:
         if not end_date_str == '':
             self.end_date.value = datetime.fromisoformat(end_date_str)
 
+        if not instrument_id == '':
+            self.instrument_id.value = instrument_id
+            
 
         # Get the individual widgets
         row_1 = widgets.HBox([self.instrument_id])
